@@ -23,7 +23,7 @@ LDPC codes are a class of linear error-correcting codes that achieve near-Shanno
 ## Project Structure
 
 ```
-LDPC-Codes/
+ldpc-codes/
 ├── ldpc/                              # Core LDPC library
 │   ├── __init__.py                    # Package exports
 │   ├── code.py                        # LDPC code construction (make_ldpc)
@@ -35,7 +35,7 @@ LDPC-Codes/
 │   ├── ldpc_images.py                 # Image transmission simulation
 │   ├── ldpc_audio.py                  # Audio transmission simulation
 │   └── _version.py                    # Version information
-├── binary/                            # Binary data files
+├── binary/                            # Bit-flip and BP decoder demos
 ├── data/                              # Sample data for simulations
 ├── plot_coding_decoding_simulation.py # BER vs SNR simulation script
 ├── plot_image_transmission.py         # Image transmission demo
@@ -56,8 +56,8 @@ LDPC-Codes/
 ### Installation
 
 ```bash
-git clone https://github.com/Sagargupta16/LDPC-Codes.git
-cd LDPC-Codes
+git clone https://github.com/Sagargupta16/ldpc-codes.git
+cd ldpc-codes
 pip install numpy scipy matplotlib numba
 ```
 
@@ -117,6 +117,10 @@ D = decode(H, y, snr, maxiter=50)
 # Extract original message
 x = get_message(G, D)
 ```
+
+## Attribution
+
+The core `ldpc/` library is based on [pyldpc](https://github.com/hichamjanati/pyldpc) by Hicham Janati, released under the BSD-3-Clause license.
 
 ## License
 
