@@ -106,7 +106,7 @@ def coding_matrix_systematic(H, sparse=True):
 
     return H_new, G_systematic.T
 
-def make_ldpc(n, dv, dc, sparse=True, seed=None):
+def make_ldpc(n, dv, dc, systematic=True, sparse=True, seed=None):
     """
     Create an LDPC coding and decoding matrices H and G.
 
@@ -134,5 +134,9 @@ def make_ldpc(n, dv, dc, sparse=True, seed=None):
     """
     seed = utils.check_random_state(seed)
     H = parity_check_matrix(n, dv, dc, seed=seed)
+    if not systematic:
+        # ponytail: only the systematic builder survives in this module; a
+        # non-systematic coding_matrix() would need to be restored to support this.
+        raise NotImplementedError("Non-systematic G construction is not available; use systematic=True.")
     H, G = coding_matrix_systematic(H, sparse=sparse)
     return H, G
