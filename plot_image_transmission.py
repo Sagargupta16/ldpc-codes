@@ -36,9 +36,9 @@ def process_image(image_path, coding_matrix, snr, seed):
 
     print("Decoded image shape:", decoded_image.shape)
 
-    # Calculate errors
-    error_noisy = abs(noisy_image - image).mean()
-    error_decoded = abs(decoded_image - image).mean()
+    # Calculate errors (cast to signed int to avoid uint8 wraparound)
+    error_noisy = abs(noisy_image.astype(int) - image.astype(int)).mean()
+    error_decoded = abs(decoded_image.astype(int) - image.astype(int)).mean()
 
     print("Noisy image error: %.3f %%" % error_noisy)
     print("Decoded image error: %.3f %%" % error_decoded)
