@@ -58,7 +58,7 @@ ldpc-codes/
 ```bash
 git clone https://github.com/Sagargupta16/ldpc-codes.git
 cd ldpc-codes
-pip install numpy scipy matplotlib numba
+pip install -e .
 ```
 
 ### Usage
@@ -120,7 +120,7 @@ x = get_message(G, D)
 
 ## Attribution
 
-The core `ldpc/` library is based on [pyldpc](https://github.com/hichamjanati/pyldpc) by Hicham Janati, released under the BSD-3-Clause license.
+The core `ldpc/` library is based on [pyldpc](https://github.com/hichamjanati/pyldpc) by Hicham Janati, released under the BSD-3-Clause license. See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for the full notice.
 
 ## License
 
